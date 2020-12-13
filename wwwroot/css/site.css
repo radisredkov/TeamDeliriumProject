@@ -69,10 +69,11 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-  background-color: #000;
-  color: #d5d5d5;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #000;
+    color: #d5d5d5;
+    overflow: hidden;
 }
 
 div.transbox {
@@ -89,3 +90,45 @@ div.transbox {
         font-weight: bold;
         color: #000000;
     }
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.backgroundImage {
+    -webkit-animation: mover 15s infinite alternate;
+    animation: mover 15s infinite alternate;
+    /*max-height:100%;
+    max-width:100%;*/
+    position: absolute;
+    transform: scale(5) !important;
+    overflow: hidden;
+    z-index: -1;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}

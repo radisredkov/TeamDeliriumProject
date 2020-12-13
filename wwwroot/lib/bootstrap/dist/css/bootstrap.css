@@ -6589,17 +6589,17 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-    /*background-color: #fff !important;*/
+    background-color: rgba(255, 255, 255, 0.4) !important;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    /*background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
     -o-animation: rainbow 18s ease infinite;
-    animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;*/
 }
 
 .bg-transparent {
@@ -9920,7 +9920,7 @@ a.text-light:hover, a.text-light:focus {
 }
 
 a.text-dark:hover, a.text-dark:focus {
-  color: #121416 !important;
+  color: #28a745 !important;
 }
 
 .text-body {
