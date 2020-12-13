@@ -5,9 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TeamDeliriumProject.Data;
+using TeamDeliriumProject.Data.Identity;
 
 namespace TeamDeliriumProject
 {
@@ -24,6 +28,21 @@ namespace TeamDeliriumProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddTransient<ComponentService, ComponentService>();
+            services.AddDbContext<PineContext>(opt =>
+            {
+                opt.UseSqlServer(Configuration.GetConnectionString("DEV"), b => b.MigrationsAssembly("PcBuildingSite"));
+            });
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<PineContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +64,7 @@ namespace TeamDeliriumProject
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
