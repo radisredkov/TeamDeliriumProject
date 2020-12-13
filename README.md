@@ -1,2 +1,2 @@
-# TeamDeliriumProject
-Team Delirium's SoftUni project.
+# Pine
+Team Delirium's SoftUni project - Pine™.
